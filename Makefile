@@ -117,8 +117,7 @@ run: build
 # 创建测试 topic
 create-topic:
 	@echo "📝 Creating topic..."
-	docker exec kafka-controller-1 /opt/kafka/bin/kafka-topics.sh \
-		--create \
+	docker exec kafka-controller-1 kafka-topics --create \
 		--bootstrap-server kafka-controller-1:9092 \
 		--topic stress-test-topic \
 		--partitions 64 \
@@ -128,23 +127,20 @@ create-topic:
 # 查看 topic 信息
 describe-topic:
 	@echo "📊 Topic information:"
-	docker exec kafka-controller-1 /opt/kafka/bin/kafka-topics.sh \
-		--describe \
+	docker exec kafka-controller-1 kafka-topics --describe \
 		--bootstrap-server kafka-controller-1:9092 \
 		--topic stress-test-topic
 
 # 消费消息
 consume:
 	@echo "📥 Consuming messages from stress-test-topic:"
-	docker exec kafka-controller-1 /opt/kafka/bin/kafka-console-consumer.sh \
-		--bootstrap-server kafka-controller-1:9092 \
+	docker exec kafka-controller-1 kafka-console-consumer --bootstrap-server kafka-controller-1:9092 \
 		--topic stress-test-topic \
 		--from-beginning
 
 # 查看所有 topics
 list-topics:
-	docker exec kafka-controller-1 /opt/kafka/bin/kafka-topics.sh \
-		--list \
+	docker exec kafka-controller-1 kafka-topics --list \
 		--bootstrap-server kafka-controller-1:9092
 
 # ==================== 清理命令 ====================
