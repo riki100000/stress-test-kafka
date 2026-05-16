@@ -41,46 +41,46 @@ help:
 # 启动 Kafka 集群
 up:
 	@echo "🚀 Starting Kafka cluster..."
-	docker-compose up -d
+	docker compose up -d
 	@echo "✅ Kafka cluster started"
 	@echo "📊 Kafka UI: http://localhost:8080"
 	@echo ""
 	@echo "Waiting for Kafka to be ready..."
 	@sleep 3
-	@docker-compose ps
+	@docker compose ps
 
 # 停止 Kafka 集群
 down:
 	@echo "🛑 Stopping Kafka cluster..."
-	docker-compose down
+	docker compose down
 
 # 停止并删除数据卷
 down-clean:
 	@echo "🛑 Stopping Kafka cluster and removing data..."
-	docker-compose down -v
+	docker compose down -v
 
 # 重启 Kafka 集群
 restart:
 	@echo "🔄 Restarting Kafka cluster..."
-	docker-compose restart
+	docker compose restart
 
 # 查看集群状态
 status:
 	@echo "📊 Kafka cluster status:"
-	docker-compose ps
+	docker compose ps
 
 # 查看日志
 logs:
-	docker-compose logs -f
+	docker compose logs -f
 
 # 查看特定服务的日志
 logs-kafka:
 	@echo "📋 Kafka logs:"
-	docker-compose logs -f kafka-controller-1
+	docker compose logs -f kafka-controller-1
 
 logs-ui:
 	@echo "📋 Kafka UI logs:"
-	docker-compose logs -f kafka-ui
+	docker compose logs -f kafka-ui
 
 # ==================== Go 测试工具 ====================
 
