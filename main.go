@@ -33,8 +33,8 @@ const (
 	topic  = "stress-test-topic"
 
 	// 测试参数 - 1 亿条消息（3 分钟完成）
-	numGoroutines = 10000                         // 并发 goroutine 数量（高并发）
-	msgsPerWorker = 100_000                       // 每个 goroutine 发送 10 万条消息
+	numGoroutines = 100000                        // 并发 goroutine 数量（高并发）
+	msgsPerWorker = 100_0000                      // 每个 goroutine 发送 10 万条消息
 	totalMessages = numGoroutines * msgsPerWorker // 1 亿条消息
 )
 
