@@ -120,7 +120,7 @@ create-topic:
 	docker exec kafka-controller-1 kafka-topics --create \
 		--bootstrap-server kafka-controller-1:9092 \
 		--topic hmd-data \
-		--partitions 64 \
+		--partitions 3 \
 		--replication-factor 3 \
 		--if-not-exists
 
