@@ -61,7 +61,7 @@ func main() {
 	// 批量发送配置 - 超高吞吐量优化
 	config.Producer.Flush.Messages = 10000                   // 每批 10000 条（最大批处理）
 	config.Producer.Flush.Frequency = 100 * time.Millisecond // 每 100ms 刷新一次
-	config.Producer.MaxMessageBytes = 10000000               // 10MB（增大缓冲区）
+	config.Producer.MaxMessageBytes = 10485760                // 10MB
 
 	// 创建 producer
 	producer, err := sarama.NewAsyncProducer([]string{broker}, config)
