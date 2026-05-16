@@ -3,6 +3,7 @@ package main
 import (
 	"fmt"
 	"log"
+	"sync"
 	"sync/atomic"
 	"time"
 
@@ -67,7 +68,6 @@ func main() {
 	if err != nil {
 		log.Fatalf("❌ Failed to create producer: %v", err)
 	}
-	defer producer.Close()
 
 	fmt.Println("✅ Async Producer created successfully")
 	fmt.Println("📊 Starting to send messages...")
@@ -89,8 +89,12 @@ func main() {
 	}()
 
 	// 启动多个 goroutine 并发发送消息
+	var wg sync.WaitGroup
+	wg.Add(numGoroutines)
+
 	for i := 0; i < numGoroutines; i++ {
 		go func(workerID int) {
+			defer wg.Done()
 			for j := 0; j < msgsPerWorker; j++ {
 				message := fmt.Sprintf("Worker-%d-Message-%d-Timestamp-%d",
 					workerID, j, time.Now().UnixNano())
@@ -135,13 +139,14 @@ func main() {
 		}(i)
 	}
 
-	// 等待所有消息发送完成
-	expectedTotal := int64(totalMessages)
-	for atomic.LoadInt64(&successCount)+atomic.LoadInt64(&errorCount) < expectedTotal {
-		time.Sleep(100 * time.Millisecond)
-	}
+	// 等待所有工作 goroutine 完成
+	wg.Wait()
 
 	duration := time.Since(startTime)
+
+	// 关闭 producer 并等待错误处理完成
+	producer.Close()
+	time.Sleep(500 * time.Millisecond)
 
 	// 输出统计信息
 	fmt.Println()
