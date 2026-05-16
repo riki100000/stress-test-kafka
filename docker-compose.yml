@@ -19,7 +19,7 @@ services:
       KAFKA_OFFSETS_TOPIC_REPLICATION_FACTOR: 3
       KAFKA_TRANSACTION_STATE_LOG_REPLICATION_FACTOR: 3
       KAFKA_TRANSACTION_STATE_LOG_MIN_ISR: 2
-      KAFKA_NUM_PARTITIONS: 3
+      KAFKA_NUM_PARTITIONS: 64
       KAFKA_MIN_INSYNC_REPLICAS: 2
       KAFKA_CLUSTER_ID: M8dH9ZLUTLi8K3bH5kPnYg
       KAFKA_HEAP_OPTS: "-Xms2G -Xmx2G"
@@ -34,8 +34,7 @@ services:
     volumes:
       - kafka-controller-1-data:/var/lib/kafka/data
     networks:
-      kafka-network:
-        ipv4_address: 10.20.0.11
+      - kafka-network
     healthcheck:
       test: ["CMD-SHELL", "kafka-broker-api-versions --bootstrap-server localhost:9092 || exit 1"]
       interval: 10s
@@ -69,7 +68,7 @@ services:
       KAFKA_OFFSETS_TOPIC_REPLICATION_FACTOR: 3
       KAFKA_TRANSACTION_STATE_LOG_REPLICATION_FACTOR: 3
       KAFKA_TRANSACTION_STATE_LOG_MIN_ISR: 2
-      KAFKA_NUM_PARTITIONS: 3
+      KAFKA_NUM_PARTITIONS: 64
       KAFKA_MIN_INSYNC_REPLICAS: 2
       KAFKA_CLUSTER_ID: M8dH9ZLUTLi8K3bH5kPnYg
       KAFKA_HEAP_OPTS: "-Xms2G -Xmx2G"
@@ -84,8 +83,7 @@ services:
     volumes:
       - kafka-controller-2-data:/var/lib/kafka/data
     networks:
-      kafka-network:
-        ipv4_address: 10.20.0.12
+      - kafka-network
     healthcheck:
       test: ["CMD-SHELL", "kafka-broker-api-versions --bootstrap-server localhost:9092 || exit 1"]
       interval: 10s
@@ -119,7 +117,7 @@ services:
       KAFKA_OFFSETS_TOPIC_REPLICATION_FACTOR: 3
       KAFKA_TRANSACTION_STATE_LOG_REPLICATION_FACTOR: 3
       KAFKA_TRANSACTION_STATE_LOG_MIN_ISR: 2
-      KAFKA_NUM_PARTITIONS: 3
+      KAFKA_NUM_PARTITIONS: 64
       KAFKA_MIN_INSYNC_REPLICAS: 2
       KAFKA_CLUSTER_ID: M8dH9ZLUTLi8K3bH5kPnYg
       KAFKA_HEAP_OPTS: "-Xms2G -Xmx2G"
@@ -134,8 +132,7 @@ services:
     volumes:
       - kafka-controller-3-data:/var/lib/kafka/data
     networks:
-      kafka-network:
-        ipv4_address: 10.20.0.13
+      - kafka-network
     healthcheck:
       test: ["CMD-SHELL", "kafka-broker-api-versions --bootstrap-server localhost:9092 || exit 1"]
       interval: 10s
@@ -172,9 +169,6 @@ services:
 networks:
   kafka-network:
     driver: bridge
-    ipam:
-      config:
-        - subnet: 10.20.0.0/24
 
 volumes:
   kafka-controller-1-data:

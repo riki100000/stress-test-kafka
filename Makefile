@@ -121,7 +121,7 @@ create-topic:
 		--create \
 		--bootstrap-server kafka-controller-1:9092 \
 		--topic stress-test-topic \
-		--partitions 3 \
+		--partitions 64 \
 		--replication-factor 3 \
 		--if-not-exists
 
