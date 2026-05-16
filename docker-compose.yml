@@ -1,6 +1,6 @@
 services:
   kafka-controller-1:
-    image: apache/kafka:latest
+    image: confluentinc/cp-kafka:8.1.2
     container_name: kafka-controller-1
     ports:
       - "19092:19092"
@@ -27,7 +27,7 @@ services:
       - kafka-network
 
   kafka-controller-2:
-    image: apache/kafka:latest
+    image: confluentinc/cp-kafka:8.1.2
     container_name: kafka-controller-2
     ports:
       - "19094:19094"
@@ -54,7 +54,7 @@ services:
       - kafka-network
 
   kafka-controller-3:
-    image: apache/kafka:latest
+    image: confluentinc/cp-kafka:8.1.2
     container_name: kafka-controller-3
     ports:
       - "19096:19096"
