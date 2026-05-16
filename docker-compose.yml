@@ -41,14 +41,6 @@ services:
       timeout: 5s
       retries: 10
       start_period: 30s
-    deploy:
-      resources:
-        limits:
-          cpus: '2'
-          memory: 4G
-        reservations:
-          cpus: '1'
-          memory: 2G
 
   kafka-controller-2:
     image: confluentinc/cp-kafka:7.6.0
@@ -90,14 +82,6 @@ services:
       timeout: 5s
       retries: 10
       start_period: 30s
-    deploy:
-      resources:
-        limits:
-          cpus: '2'
-          memory: 4G
-        reservations:
-          cpus: '1'
-          memory: 2G
 
   kafka-controller-3:
     image: confluentinc/cp-kafka:7.6.0
@@ -139,14 +123,6 @@ services:
       timeout: 5s
       retries: 10
       start_period: 30s
-    deploy:
-      resources:
-        limits:
-          cpus: '2'
-          memory: 4G
-        reservations:
-          cpus: '1'
-          memory: 2G
 
   kafka-ui:
     image: provectuslabs/kafka-ui:latest
