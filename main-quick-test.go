@@ -11,7 +11,7 @@ import (
 
 const (
 	broker         = "localhost:19092"
-	topic          = "stress-test-topic"
+	topic          = "hmd-data"
 	numGoroutines  = 10
 	msgsPerWorker  = 1_000 // 快速测试：1 万条
 	totalMessages  = numGoroutines * msgsPerWorker

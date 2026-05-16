@@ -119,7 +119,7 @@ create-topic:
 	@echo "📝 Creating topic..."
 	docker exec kafka-controller-1 kafka-topics --create \
 		--bootstrap-server kafka-controller-1:9092 \
-		--topic stress-test-topic \
+		--topic hmd-data \
 		--partitions 64 \
 		--replication-factor 3 \
 		--if-not-exists
@@ -129,13 +129,13 @@ describe-topic:
 	@echo "📊 Topic information:"
 	docker exec kafka-controller-1 kafka-topics --describe \
 		--bootstrap-server kafka-controller-1:9092 \
-		--topic stress-test-topic
+		--topic hmd-data
 
 # 消费消息
 consume:
-	@echo "📥 Consuming messages from stress-test-topic:"
+	@echo "📥 Consuming messages from hmd-data:"
 	docker exec kafka-controller-1 kafka-console-consumer --bootstrap-server kafka-controller-1:9092 \
-		--topic stress-test-topic \
+		--topic hmd-data \
 		--from-beginning
 
 # 查看所有 topics

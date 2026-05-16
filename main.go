@@ -30,7 +30,7 @@ func formatBandwidth(bytesPerSecond float64) string {
 const (
 	// Kafka broker 地址
 	broker = "localhost:19092"
-	topic  = "stress-test-topic"
+	topic  = "hmd-data"
 
 	// 测试参数 - 1 亿条消息（3 分钟完成）
 	numGoroutines = 100000                        // 并发 goroutine 数量（高并发）
