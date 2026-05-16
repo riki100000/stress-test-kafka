@@ -21,7 +21,7 @@ services:
       KAFKA_TRANSACTION_STATE_LOG_MIN_ISR: 2
       KAFKA_NUM_PARTITIONS: 64
       KAFKA_MIN_INSYNC_REPLICAS: 2
-      KAFKA_CLUSTER_ID: M8dH9ZLUTLi8K3bH5kPnYg
+      CLUSTER_ID: M8dH9ZLUTLi8K3bH5kPnYg
       KAFKA_HEAP_OPTS: "-Xms2G -Xmx2G"
       KAFKA_JVM_PERFORMANCE_OPTS: "-server -XX:+UseG1GC -XX:MaxGCPauseMillis=20 -XX:InitiatingHeapOccupancyPercent=35 -XX:+ExplicitGCInvokesConcurrent -Djava.awt.headless=true"
       KAFKA_LOG_RETENTION_HOURS: 24
@@ -62,7 +62,7 @@ services:
       KAFKA_TRANSACTION_STATE_LOG_MIN_ISR: 2
       KAFKA_NUM_PARTITIONS: 64
       KAFKA_MIN_INSYNC_REPLICAS: 2
-      KAFKA_CLUSTER_ID: M8dH9ZLUTLi8K3bH5kPnYg
+      CLUSTER_ID: M8dH9ZLUTLi8K3bH5kPnYg
       KAFKA_HEAP_OPTS: "-Xms2G -Xmx2G"
       KAFKA_JVM_PERFORMANCE_OPTS: "-server -XX:+UseG1GC -XX:MaxGCPauseMillis=20 -XX:InitiatingHeapOccupancyPercent=35 -XX:+ExplicitGCInvokesConcurrent -Djava.awt.headless=true"
       KAFKA_LOG_RETENTION_HOURS: 24
@@ -103,7 +103,7 @@ services:
       KAFKA_TRANSACTION_STATE_LOG_MIN_ISR: 2
       KAFKA_NUM_PARTITIONS: 64
       KAFKA_MIN_INSYNC_REPLICAS: 2
-      KAFKA_CLUSTER_ID: M8dH9ZLUTLi8K3bH5kPnYg
+      CLUSTER_ID: M8dH9ZLUTLi8K3bH5kPnYg
       KAFKA_HEAP_OPTS: "-Xms2G -Xmx2G"
       KAFKA_JVM_PERFORMANCE_OPTS: "-server -XX:+UseG1GC -XX:MaxGCPauseMillis=20 -XX:InitiatingHeapOccupancyPercent=35 -XX:+ExplicitGCInvokesConcurrent -Djava.awt.headless=true"
       KAFKA_LOG_RETENTION_HOURS: 24
